@@ -5,9 +5,9 @@ Codes provided with no warranty.
 
 ## How to run models
 
-Codes in MATLAB 2017a are provided at [github.com/Chronowanderer/aLBcells-for-HDsystem](github.com/Chronowanderer/aLBcells-for-HDsystem).
+Codes in MATLAB 2017a are provided at [kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results](kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results).
 
 ## Contact me
 
-Yijia (Charlie) Yan
+Yijia (Charlie) Yan 
 yijia.yan@new.ox.ac.uk
