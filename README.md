@@ -7,7 +7,7 @@ Codes provided with no warranty.
 
 Download Matlab scripts and run each main code section by section, following instructions embedded.
 
-These sections include basic settings, parameter settings, data pre-processing, training, basic plotting, and testing (with final plotting).
+These sections include basic settings, hyperparameter settings, data pre-processing, training, basic plotting, and testing (with final plotting).
 
 Four independent main codes are provided:
 
