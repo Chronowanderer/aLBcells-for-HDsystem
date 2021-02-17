@@ -5,9 +5,11 @@ Codes provided with no warranty.
 
 ## How to run models
 
-Codes in MATLAB 2017a are provided at [kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results](kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results).
+Simulation results used for testing and plotting in the paper are provided at [kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results](kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results).
 
 ## Contact me
+
+Feel free to contact me for any assistance and communication.
 
 Yijia (Charlie) Yan 
 yijia.yan@new.ox.ac.uk
