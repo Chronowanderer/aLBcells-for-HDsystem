@@ -12,5 +12,4 @@ Simulation results used for testing and plotting in the paper are provided at [K
 Feel free to contact me for any assistance and communication.
 
 Yijia (Charlie) Yan
-
 yijia.yan@new.ox.ac.uk
