@@ -7,6 +7,8 @@ Codes provided with no warranty.
 
 Download Matlab scripts and run each main code section by section, following instructions embedded.
 
+These sections include basic settings, parameter settings, data pre-processing, training, basic plotting, and testing (with final plotting).
+
 Four independent main codes are provided:
 
     aLB_main.m - Simulations of model with a single Visual-aLB connection (refer to Figs 1-4, S1-S5 Figs).
