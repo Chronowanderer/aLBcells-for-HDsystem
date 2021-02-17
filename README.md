@@ -5,11 +5,30 @@ Codes provided with no warranty.
 
 ## How to run models
 
-Simulation results used for testing and plotting in the paper are provided at [Kaggle](https://kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results).
+Download Matlab scripts and run each main code section by section, following instructions embedded.
+
+Four independent main codes are provided: 
+    aLB_main.m - Simulations of model with a single Visual-aLB connection (refer to Figs 1-4, S1-S5 Figs).
+    aLB2HD_main.m - Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8, S6-S7 Figs).
+    aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
+    aLB_aLB2HD_FigS8.m - Simulations of model from aLB_main.m and aLB2HD_main.m across 3 subjects (refer to S8 Fig).
+Follow the corresponding instructions to change hyperparameters and settings for different simulations.
+
+Notice some simulations require modifying in other Matlab scripts. These include:
+    Visual_inputs.m - Basic visual input formation as visual cell activities.
+    aLB_simulation.m - Training simulation of model with a single Visual-aLB connection (aLB_main.m). Change learning rules here for S1A Fig.
+Please strictly follow the corresponding instructions, including returning to the default settings after simulation.
+
+If you want to skip the time-consuming training phase or reduplicate simulation results in the paper, please download MAT files from [Kaggle](https://kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results), load them as training simulation results, and only run the testing section in main codes.
+
+## What are the files
+
+See the starting comments of each file for details.
 
 ## Contact me
 
 Feel free to contact me for any assistance and communication.
+
 
 Yijia (Charlie) Yan
 
