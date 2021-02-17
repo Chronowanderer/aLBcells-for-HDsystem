@@ -31,7 +31,11 @@ If you want to skip the time-consuming training phase or reduplicate simulation 
 
 ## What are the files
 
-See the starting comments of each file for details.
+Figs folder: Figures plotted in the paper based on simulation results provided above.
+
+RealData_CIRC_Manson folder: MATLAB extension files with 3 independent HD trajectory data from the 20-minute real-time rat recording used for simulations. Figs 1-8 and S1-S7 Figs show simulation results based on the data only with Subject 1. S8 Fig shows simulation results based on the data with all 3 subjects.
+
+Matlab scripts: See the starting comments of each file for details.
 
 ## Contact me
 
