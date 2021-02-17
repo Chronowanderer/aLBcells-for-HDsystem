@@ -5,11 +5,12 @@ Codes provided with no warranty.
 
 ## How to run models
 
-Simulation results used for testing and plotting in the paper are provided at [kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results](kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results).
+Simulation results used for testing and plotting in the paper are provided at [Kaggle](https://kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results).
 
 ## Contact me
 
 Feel free to contact me for any assistance and communication.
 
-Yijia (Charlie) Yan 
+Yijia (Charlie) Yan
+
 yijia.yan@new.ox.ac.uk
