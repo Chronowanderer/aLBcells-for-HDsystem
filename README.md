@@ -7,7 +7,7 @@ Codes provided with no warranty.
 
 Download Matlab scripts and run each main code section by section, following instructions embedded.
 
-Four independent main codes are provided: 
+Four independent main codes are provided: \n
     aLB_main.m - Simulations of model with a single Visual-aLB connection (refer to Figs 1-4, S1-S5 Figs).
     aLB2HD_main.m - Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8, S6-S7 Figs).
     aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
