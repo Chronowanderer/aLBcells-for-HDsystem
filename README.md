@@ -11,11 +11,9 @@ Four independent main codes are provided:
     aLB_main.m - Simulations of model with a single Visual-aLB connection (refer to Figs 1-4, S1-S5 Figs),
     aLB2HD_main.m - Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8, S6-S7 Figs),
     aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8), and
-    aLB_aLB2HD_FigS8.m - Simulations of model from aLB_main.m and aLB2HD_main.m across 3 subjects (refer to S8 Fig).
+    aLB_aLB2HD_FigS8.m - Simulations of models from aLB_main.m and aLB2HD_main.m across 3 subjects (refer to S8 Fig).
     
-Follow the corresponding instructions to change hyperparameters and settings for different simulations. 
-
-You would see how the model with aLB cells provides:
+Follow the corresponding instructions to change hyperparameters and settings for different simulations across multiple complex environments. You would see how the model with aLB cells provides:
 
     Unimodal encoding of complex scenery with directioinally ambiguous cues (Fig 2),
     Robustness against ephemeral cues (Fig 3A-B),
