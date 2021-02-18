@@ -3,7 +3,7 @@ Codes in MATLAB 2017a for Yan, Burgess, & Bicanski, A model of head direction an
 
 Codes provided with no warranty.
 
-## What is the model for
+## What is the model
 
 The model raises a new type of neuron (abstract landmark bearing (aLB) cells) which endows the animal head direction (HD) system with powerful abilities, including unimodal landmark encoding at a sensory level despite partially conflicting cues, robustness against unreliable and ephemeral cues, and a high encoding capacity across environments. The model is consistent with numerous empirical findings, and provides a novel perspective on the neural mechanisms of spatial navigation in more realistic, cue-rich settings across multiple environments. 
 
