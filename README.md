@@ -36,12 +36,12 @@ Notice some simulations require modifying in other Matlab scripts. These include
     
 Please strictly follow the corresponding instructions, including returning to the default settings after simulation.
 
-If you want to skip the time-consuming training phase or reduplicate simulation results in the paper, please download MAT files from [Kaggle](https://kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results), load them as training simulation results, and only run the testing section in main codes. Note S8 Fig is plotted from aLB_aLB2HD_FigS8.m in this way.
+If you want to skip the time-consuming training phase or reduplicate simulation results in the paper, please download MAT files from [Kaggle](https://kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results), load them as training simulation results, and only run the testing section in main codes. S8 Fig is plotted from aLB_aLB2HD_FigS8.m in this way.
 
 ## What are the files
 Figs folder: Figures plotted in the paper based on simulation results provided above.
 
-RealData_CIRC_Manson folder: MATLAB extension files with 3 independent HD trajectory data from the 20-minute real-time rat recording used for simulations. Figs 1-8 and S1-S7 Figs show simulation results based on the data only with Subject 1. S8 Fig shows simulation results based on the data with all 3 subjects.
+RealData_CIRC_Manson folder: MATLAB extension files with 3 independent HD trajectory data from the 20-minute real-time rat recording used for simulations. Also provided as supporting information in the paper. Figs 1-8 and S1-S7 Figs show simulation results based on the data only with Subject 1. S8 Fig shows simulation results based on the data with all 3 subjects. We thank Daniel Manson for providing this real HD trajectory data.
 
 Matlab scripts: See the starting comments of each file for details.
 
