@@ -17,16 +17,16 @@ Four independent main codes are provided:
     aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8), and
     aLB_aLB2HD_FigS8.m - Simulations of models from aLB_main.m and aLB2HD_main.m across 3 subjects (refer to S8 Fig).
     
-Follow the corresponding instructions to change hyperparameters and settings for different simulations. You would see how the model with aLB cells provides:
+Follow the corresponding instructions to change hyperparameters and settings for different simulations. You would see how the model with aLB cells provides various powerful abilities, such as:
 
     Unimodal landmark encoding of complex scenery with directioinally ambiguous cues (Fig 2),
     Robustness against unreliable cues (Fig 3A-B),
-    Novel ephemeral cue incorporation (Fig 3C),
+    Novel ephemeral salient cue incorporation (Fig 3C),
     High encoding capacity across multiple environmnets (Fig 4),
     Multimodal dRSC units in accordance with previous experimental findings (Fig 5),
     Globally stabilized HD signals (Fig 6),
-    HD disambiguation against conflicting cues (Fig 7), and
-    Stable HD retrieval across multiple environmnets (Fig 8).
+    HD disambiguition with HD rotation following panoramic view against conflicting salient cues (Fig 7), and
+    Reliable HD retrieval across multiple environmnets (Fig 8).
 
 Notice some simulations require modifying in other Matlab scripts. These include:
 
