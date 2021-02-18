@@ -18,16 +18,16 @@ Three independent main codes are provided:
     aLB2HD_main % aLB2HD_main.m, Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8; S6-S8 Figs).
     aLBexcluded_main % aLBexcluded_main.m, Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
     
-Follow the corresponding instructions to change hyperparameters and settings for different simulations. You would see how the model with aLB cells provides various powerful abilities, such as:
+Follow the corresponding instructions to change hyperparameters and settings for different simulations. With testing scripts you would see how the model with aLB cells provides various powerful abilities, such as:
 
-    % Unimodal landmark encoding of complex scenery with directioinally ambiguous cues (Fig 2).
-    % Robustness against unreliable cues (Fig 3A-B).
-    % Novel ephemeral salient cue incorporation (Fig 3C).
-    % High encoding capacity across multiple environmnets (Fig 4).
-    % Multimodal dRSC units in accordance with previous experimental findings (Fig 5).
-    % Globally stabilized HD signals (Fig 6).
-    % HD disambiguition with HD rotation following panoramic view against conflicting salient cues (Fig 7).
-    % Reliable HD retrieval across multiple environmnets (Fig 8).
+    aLB_test_Fig2 % aLB_test_Fig2.m, Unimodal landmark encoding of complex scenery with directioinally ambiguous cues (Fig 2).
+    aLB_test_Fig3AB % aLB_test_Fig3AB.m, Robustness against unreliable cues (Fig 3A-B).
+    aLB_test_Fig3C % aLB_test_Fig3C.m, Novel ephemeral salient cue incorporation (Fig 3C).
+    aLB_test_Fig4 % aLB_test_Fig4.m, High encoding capacity across multiple environmnets (Fig 4).
+    aLB2HD_test_Fig5_6B % aLB2HD_test_Fig5_6B.m, Multimodal dRSC units in accordance with previous experimental findings (Fig 5).
+    aLB2HD_test_Fig5_6B % aLB2HD_test_Fig5_6B.m, Globally stabilized HD signals (Fig 6).
+    aLB2HD_test_Fig7 % aLB2HD_test_Fig7.m, HD disambiguition with HD rotation following panoramic view against conflicting salient cues (Fig 7).
+    aLB2HD_test_Fig8 % aLB2HD_test_Fig8.m, Reliable HD retrieval across multiple environmnets (Fig 8).
 
 Notice some simulations require modifying in other Matlab scripts. These include:
 
