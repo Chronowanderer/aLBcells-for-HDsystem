@@ -1,7 +1,7 @@
 # aLBcells-for-HDsystem
 Codes in MATLAB 2017a for 
 
-    Yan, Burgess, & Bicanski, A model of head direction and landmark coding in complex environments, PLOS Computational Biology, Under review.
+    Yan, Burgess, & Bicanski. A model of head direction and landmark coding in complex environments. PLOS Computational Biology. Under review.
 
 Cite the paper for using codes. Codes provided with no warranty.
 
