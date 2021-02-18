@@ -14,9 +14,9 @@ Download Matlab scripts and run each main code section by section, following ins
 
 Three independent main codes are provided:
 
-    aLB_main.m % Simulations of model with a single Visual-aLB connection (refer to Figs 1-4; S1-S5, S8 Figs).
-    aLB2HD_main.m % Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8; S6-S8 Figs).
-    aLBexcluded_main.m % Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
+    aLB_main % aLB_main.m, Simulations of model with a single Visual-aLB connection (refer to Figs 1-4; S1-S5, S8 Figs).
+    aLB2HD_main % aLB2HD_main.m, Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8; S6-S8 Figs).
+    aLBexcluded_main % aLBexcluded_main.m, Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
     
 Follow the corresponding instructions to change hyperparameters and settings for different simulations. You would see how the model with aLB cells provides various powerful abilities, such as:
 
@@ -31,8 +31,8 @@ Follow the corresponding instructions to change hyperparameters and settings for
 
 Notice some simulations require modifying in other Matlab scripts. These include:
 
-    Visual_inputs.m % Basic visual input formation as visual cell activities.
-    aLB_simulation.m % Training simulation of model with a single Visual-aLB connection (aLB_main.m). Change learning rules here for S1A Fig.
+    Visual_inputs % Visual_inputs.m, Basic visual input formation as visual cell activities.
+    aLB_simulation % aLB_simulation.m, Training simulation of model with a single Visual-aLB connection (aLB_main.m). Change learning rules here for S1A Fig.
     
 Please strictly follow the corresponding instructions, including returning to the default settings after simulation.
 
