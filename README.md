@@ -14,25 +14,25 @@ Download Matlab scripts and run each main code section by section, following ins
 
 Three independent main codes are provided:
 
-    aLB_main.m - Simulations of model with a single Visual-aLB connection (refer to Figs 1-4; S1-S5, S8 Figs),
-    aLB2HD_main.m - Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8; S6-S8 Figs), and
-    aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
+    aLB_main.m % Simulations of model with a single Visual-aLB connection (refer to Figs 1-4; S1-S5, S8 Figs).
+    aLB2HD_main.m % Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8; S6-S8 Figs).
+    aLBexcluded_main.m % Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
     
 Follow the corresponding instructions to change hyperparameters and settings for different simulations. You would see how the model with aLB cells provides various powerful abilities, such as:
 
-    Unimodal landmark encoding of complex scenery with directioinally ambiguous cues (Fig 2),
-    Robustness against unreliable cues (Fig 3A-B),
-    Novel ephemeral salient cue incorporation (Fig 3C),
-    High encoding capacity across multiple environmnets (Fig 4),
-    Multimodal dRSC units in accordance with previous experimental findings (Fig 5),
-    Globally stabilized HD signals (Fig 6),
-    HD disambiguition with HD rotation following panoramic view against conflicting salient cues (Fig 7), and
-    Reliable HD retrieval across multiple environmnets (Fig 8).
+    % Unimodal landmark encoding of complex scenery with directioinally ambiguous cues (Fig 2).
+    % Robustness against unreliable cues (Fig 3A-B).
+    % Novel ephemeral salient cue incorporation (Fig 3C).
+    % High encoding capacity across multiple environmnets (Fig 4).
+    % Multimodal dRSC units in accordance with previous experimental findings (Fig 5).
+    % Globally stabilized HD signals (Fig 6).
+    % HD disambiguition with HD rotation following panoramic view against conflicting salient cues (Fig 7).
+    % Reliable HD retrieval across multiple environmnets (Fig 8).
 
 Notice some simulations require modifying in other Matlab scripts. These include:
 
-    Visual_inputs.m - Basic visual input formation as visual cell activities, and
-    aLB_simulation.m - Training simulation of model with a single Visual-aLB connection (aLB_main.m). Change learning rules here for S1A Fig.
+    Visual_inputs.m % Basic visual input formation as visual cell activities.
+    aLB_simulation.m % Training simulation of model with a single Visual-aLB connection (aLB_main.m). Change learning rules here for S1A Fig.
     
 Please strictly follow the corresponding instructions, including returning to the default settings after simulation.
 
