@@ -10,12 +10,11 @@ The model raises a new type of neuron (abstract landmark bearing (aLB) cells) wh
 ## How to run models
 Download Matlab scripts and run each main code section by section, following instructions embedded. These sections include basic settings, hyperparameter settings, data pre-processing, training, basic plotting, and testing (with final plotting).
 
-Four independent main codes are provided:
+Three independent main codes are provided:
 
-    aLB_main.m - Simulations of model with a single Visual-aLB connection (refer to Figs 1-4, S1-S5 Figs),
-    aLB2HD_main.m - Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8, S6-S7 Figs),
-    aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8), and
-    aLB_aLB2HD_FigS8.m - Simulations of models from aLB_main.m and aLB2HD_main.m across 3 subjects (refer to S8 Fig).
+    aLB_main.m - Simulations of model with a single Visual-aLB connection (refer to Figs 1-4; S1-S5, S8 Figs),
+    aLB2HD_main.m - Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (refer to Figs 5-8; S6-S8 Figs), and
+    aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8).
     
 Follow the corresponding instructions to change hyperparameters and settings for different simulations. You would see how the model with aLB cells provides various powerful abilities, such as:
 
@@ -35,7 +34,7 @@ Notice some simulations require modifying in other Matlab scripts. These include
     
 Please strictly follow the corresponding instructions, including returning to the default settings after simulation.
 
-If you want to skip the time-consuming training phase or reduplicate simulation results in the paper, please download MAT files from [Kaggle](https://kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results), load them as training simulation results, and only run the testing section in main codes.
+If you want to skip the time-consuming training phase or reduplicate simulation results in the paper, please download MAT files from [Kaggle](https://kaggle.com/chronowanderer/albcells-for-hdsystem-simulation-results), load them as training simulation results, and only run the testing section in main codes. Note S8 Fig is plotted from aLB_aLB2HD_FigS8.m in this way.
 
 ## What are the files
 Figs folder: Figures plotted in the paper based on simulation results provided above.
