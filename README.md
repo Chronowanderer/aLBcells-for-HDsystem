@@ -3,6 +3,10 @@ Codes in MATLAB 2017a for Yan, Burgess, & Bicanski, A model of head direction an
 
 Codes provided with no warranty.
 
+## What is the model for
+
+The model raises a new type of neuron (abstract landmark bearing (aLB) cells) which endows the animal head direction (HD) system with powerful abilities, including unimodal landmark encoding at a sensory level despite partially conflicting cues, robustness against unreliable and ephemeral cues, and a high encoding capacity across environments. The model is consistent with numerous empirical findings, and provides a novel perspective on the neural mechanisms of spatial navigation in more realistic, cue-rich settings across multiple environments. 
+
 ## How to run models
 Download Matlab scripts and run each main code section by section, following instructions embedded. These sections include basic settings, hyperparameter settings, data pre-processing, training, basic plotting, and testing (with final plotting).
 
@@ -13,11 +17,11 @@ Four independent main codes are provided:
     aLBexcluded_main.m - Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (refer to Figs 7-8), and
     aLB_aLB2HD_FigS8.m - Simulations of models from aLB_main.m and aLB2HD_main.m across 3 subjects (refer to S8 Fig).
     
-Follow the corresponding instructions to change hyperparameters and settings for different simulations across multiple complex environments. You would see how the model with aLB cells provides:
+Follow the corresponding instructions to change hyperparameters and settings for different simulations. You would see how the model with aLB cells provides:
 
-    Unimodal encoding of complex scenery with directioinally ambiguous cues (Fig 2),
-    Robustness against ephemeral cues (Fig 3A-B),
-    Novel cue incorporation (Fig 3C),
+    Unimodal landmark encoding of complex scenery with directioinally ambiguous cues (Fig 2),
+    Robustness against unreliable cues (Fig 3A-B),
+    Novel ephemeral cue incorporation (Fig 3C),
     High encoding capacity across multiple environmnets (Fig 4),
     Multimodal dRSC units in accordance with previous experimental findings (Fig 5),
     Globally stabilized HD signals (Fig 6),
