@@ -82,13 +82,18 @@ beta_HD = 0.08;
 gamma_HD = 0;
 
 % learing rate
-lr_initial_rate_visual = 1e-4;
+lr_initial_rate_visual = 1e-3;
 lr_decay_rate_visual = 0; % Hz
 dr_weight_visual = 0; 
 lr_initial_rate_arep2dRSC = 1e-4;
 lr_decay_rate_arep2dRSC = 0; % Hz
 lr_initial_rate_g2dRSC = 5e-5; 
 lr_decay_rate_g2dRSC = 0; % Hz
+
+lr_initial_rate_arep2dRSC_slow = lr_initial_rate_arep2dRSC; 
+lr_decay_rate_arep2dRSC_slow = lr_decay_rate_arep2dRSC; % Hz
+lr_initial_rate_g2dRSC_slow = lr_initial_rate_g2dRSC; 
+lr_decay_rate_g2dRSC_slow = lr_decay_rate_g2dRSC; % Hz
 
 % angular length of proximal cue
 proximal_length = 180;
@@ -102,7 +107,7 @@ precision_visualfield = 1;
 
 % gain factors
 inhibition_U_arep = 500;
-Uv_gain_factor = 20;
+Uv_gain_factor = 2;
 U_arep2dRSC_gain_factor = 50;
 U_g2dRSC_gain_factor = 5;
 U_dRSC2dRSC_gain_factor = 50; 
@@ -112,7 +117,7 @@ U_HD_gain_factor = 1;
 U_dRSC2HD_gain_factor = 0.1; 
 U_dRSC2HD_i_gain_factor = 2; 
 U_gRSC2HD_gain_factor = 0; 
-Wv_weight_scale = 1; 
+Wv_weight_scale = 10; 
 W_arep2dRSC_weight_scale = 1; 
 W_g2dRSC_weight_scale = 1; 
 W_dRSC2HD_weight_scale = 1; 
@@ -122,6 +127,9 @@ Fv_max_factor = 1.0;
 
 % minimun firing rate (scaled) for enabling to encode
 firingrate_criterion = .5; % will later plot all cells if no one exceeds the threshold
+
+% visual noise intensity
+visual_noise_intensity = 0;
 
 % theta wave for encoding (ff: feedforward) & retrieving (fb: feedback)
 theta_intensity_ff = 0; % [0, 1]

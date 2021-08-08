@@ -10,6 +10,7 @@ aLB_testing % testing
 [X, Y] = meshgrid(Angle_bar, 1 : Bar_total_activated_unit);
 contourf(X, Y, Bar_MapSorted_AstRepresentation, 'LineStyle', 'none');
 set(gca, 'XLim', [-180 180 - bar_angle_gap], 'YLim', [1 Bar_total_activated_unit], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
+
 c = colorbar;
 c.Label.FontSize = FontSize;
 c.Label.FontWeight = 'bold';

@@ -1,6 +1,7 @@
 % aLB cells during testing phase for taking snapshots
 
 firingrate_criterion_test = firingrate_criterion;
+Activated_unit = zeros(N_env, N_abstract);
 aLB_testing % testing
 
 [X, Y] = meshgrid(Angle_bar, 1 : Bar_total_activated_unit);

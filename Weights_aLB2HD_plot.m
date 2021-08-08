@@ -7,6 +7,8 @@ contourf(X, Y, W_g2dRSC, 'LineStyle', 'none');
 c = colorbar;
 set(gca, 'XLim', [-180, 180 - angle_gap], 'YLim', [-180, 180 - angle_gap], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
 set(gcf, 'unit', 'normalized', 'position', [0, 0, 0.4, 0.4]);
+xlabel('gRSC')
+ylabel('dRSC')
 % title('gRSC to dRSC')
 
 % Weights from aLB to dRSC

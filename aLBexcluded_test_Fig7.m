@@ -14,7 +14,8 @@ subplot(2, 2, 1);
 contourf(X, Y, Bar_dRSC_firing, 'LineStyle', 'none');
 caxis([0 1])
 set(gca, 'XLim', [-180, 180 - bar_angle_gap], 'YLim', [-180, 180 - angle_gap], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
-title('dRSC cells')
+ylabel('dRSC cells')
+title('\boldmath{$f_{dRSC}$}', 'interpreter', 'latex')
 
 subplot(2, 2, 2)
 bar_selection = fix(N_bin / 2);
@@ -22,6 +23,7 @@ Bar_selected_plotting = Bar_dRSC_firing(bar_selection, :);
 plot(Angle_bar, Bar_selected_plotting, 'b', 'LineWidth', LineWidth + 1);
 set(gca, 'XLim', [-180, 180 - bar_angle_gap], 'YLim', [0, 1], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
 title(['# ', num2str(bar_selection), '/', num2str(N_bin)])
+ylabel('\boldmath{$f_{dRSC}$}', 'interpreter', 'latex')
 hold on
 plot([0 0], [0 1], 'LineStyle', ':', 'Color', 'r', 'LineWidth', LineWidth);
 
@@ -31,7 +33,9 @@ subplot(2, 2, 3);
 contourf(X, Y, Bar_HD_firing, 'LineStyle', 'none');
 caxis([0 1])
 set(gca, 'XLim', [-180, 180 - bar_angle_gap], 'YLim', [-180, 180 - angle_gap], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
-title('HD cells')
+xlabel('HD (deg)')
+ylabel('HD cells')
+title('\boldmath{$f_{HD}$}', 'interpreter', 'latex')
 
 subplot(2, 2, 4);
 bar_selection = fix(N_bin / 2);
@@ -39,6 +43,8 @@ Bar_selected_plotting = Bar_HD_firing(bar_selection, :);
 plot(Angle_bar, Bar_selected_plotting, 'b', 'LineWidth', LineWidth + 1);
 set(gca, 'XLim', [-180, 180 - bar_angle_gap], 'YLim', [0, 1], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
 title(['# ', num2str(bar_selection), '/', num2str(N_bin)])
+xlabel('HD (deg)')
+ylabel('\boldmath{$f_{HD}$}', 'interpreter', 'latex')
 hold on
 plot([0 0], [0 1], 'LineStyle', ':', 'Color', 'r', 'LineWidth', LineWidth);
 

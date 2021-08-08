@@ -42,18 +42,23 @@ for condition = 1 : 2 % 1 for the first knowledge and 2 for the last knowledge
         contourf(X, Y, Bar_MapSorted_AstRepresentation, 'LineStyle', 'none');
         set(gca, 'XLim', [-180 180 - bar_angle_gap], 'YLim', [1 Bar_total_activated_unit]);
         set(gca, 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
-        set(gca, 'XTick', [], 'XColor', 'w', 'YTick', [], 'YColor', 'w');
         title([Sc_str{test_env},' (', num2str(Bar_total_activated_unit), ')']);
+        if test_env > fix(N_env / 2)
+            xlabel('HD (degs)')
+        end
+        if mod(test_env, fix(N_env / 2)) == 1
+            ylabel('aLB cells')
+        end
     end
     
     % Heatmap of historic aLB cells
     figure('Color', 'w')
     heatmap(Activated_unit, [], Sc_str, [], 'FontSize', FontSize, 'TickFontSize', FontSize, 'Colormap', 'red', 'GridLines', '-');
     if condition == 1
-        title('First');
+        title('Intermediate');
         Historic_aLB = Activated_unit;
     elseif condition == 2
-        title('Last');
+        title('Final');
     end
     
 end
@@ -62,7 +67,7 @@ end
 figure('Color', 'w');
 heatmap(abs(Activated_unit - Historic_aLB), [], Sc_str, [], 'FontSize', FontSize, 'TickFontSize', FontSize, 'Colormap', 'red', 'GridLines', '-');
 xlabel('aLB cells');
-title('First v.s. Last');
+title('Intermediate v.s. Final');
 
 %% IoU map preparation
 IoU_map_local = zeros(N_env, N_env);
@@ -89,12 +94,4 @@ for test_env = 1 : N_env
 end
 
 %% IoU map plotting
-figure('Color', 'w');
-subplot(1, 3, 1)
-IoU_plot(IoU_map_local, LineWidth, FontSize)
-subplot(1, 3, 2)
-IoU_plot(IoU_map_latest, LineWidth, FontSize)
-subplot(1, 3, 3)
-plot(1 : N_env, IoU_map_comp, 'k', 'LineWidth', LineWidth);
-set(gca, 'XLim', [1, N_env], 'YLim', [0, 1.05], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
-set(gcf, 'unit', 'normalized', 'position', [0, 0, 1, 0.5]);
+IoU_map_plotting

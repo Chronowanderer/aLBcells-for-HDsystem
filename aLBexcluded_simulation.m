@@ -71,8 +71,7 @@ for j = 1 : (T_len - 1)
     learning_rate_vis2dRSC = (present_time <= stop_learning_time) * lr_initial_rate_vis2dRSC * exp(-lr_decay_rate_vis2dRSC * j * dt);
     if Operation_Midgard        
     % modified Oja's subspace algorithm
-        W_vis2dRSC = Learning_algorithms('mOSA', F_visual(1, :), F_dRSC(2, :), W_vis2dRSC, lr_initial_rate_vis2dRSC, ...
-            Theta_ff(j), Theta_fb(j) * Diabolic_coefficient);
+        W_vis2dRSC = Learning_algorithms('mOSA', F_visual(1, :), F_dRSC(2, :), W_vis2dRSC, lr_initial_rate_vis2dRSC, Theta_ff(j), Theta_fb(j));
     else    
     % Classic Hebbian rule    
         W_vis2dRSC = Learning_algorithms('HL', F_visual(1, :), F_dRSC(2, :), W_vis2dRSC, lr_initial_rate_vis2dRSC, 1, W_vis2dRSC_weight_scale);

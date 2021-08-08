@@ -34,8 +34,9 @@ for subject_FigS8 = 1 : simulation_dataset_length
     end
     set(gca, 'XLim', [600 660], 'YLim', [-180, 180], 'XTick', 600 : 20 : 660, 'YTick', -180 : 180 : 180);
     set(gca, 'LineWidth', LineWidth_FigS8, 'FontSize', FontSize_FigS8, 'FontWeight', 'bold');
-    if subject_FigS8 > 1
-        set(gca, 'XTick', [], 'YTick', []);
+    xlabel('Time (s)')
+    if subject_FigS8 == 1
+        ylabel('HD (deg)')
     end
     
     %% 2nd row: aLB cells in Fig 2
@@ -49,8 +50,9 @@ for subject_FigS8 = 1 : simulation_dataset_length
     contourf(X, Y, Bar_MapSorted_AstRepresentation, 'LineStyle', 'none');
     set(gca, 'XLim', [-180 180 - bar_angle_gap], 'YLim', [1 Bar_total_activated_unit]);
     set(gca, 'LineWidth', LineWidth_FigS8, 'FontSize', FontSize_FigS8, 'FontWeight', 'bold');
-    if subject_FigS8 > 1
-        set(gca, 'XTick', [], 'YTick', []);
+    xlabel('HD (deg)')
+    if subject_FigS8 == 1
+        ylabel('aLB cells')
     end
     
     %% load aLB-HD model parameters
@@ -66,8 +68,9 @@ for subject_FigS8 = 1 : simulation_dataset_length
     caxis([0 1])
     set(gca, 'XLim', [-180, 180 - bar_angle_gap], 'YLim', [-180, 180 - angle_gap])
     set(gca, 'LineWidth', LineWidth_FigS8, 'FontSize', FontSize_FigS8, 'FontWeight', 'bold');
-    if subject_FigS8 > 1
-        set(gca, 'XTick', [], 'YTick', []);
+    xlabel('HD (deg)')
+    if subject_FigS8 == 1
+        ylabel('dRSC cells')
     end
     
     %% 4th row: HD cells in Fig 7 (tested on Env.II)
@@ -76,8 +79,9 @@ for subject_FigS8 = 1 : simulation_dataset_length
     caxis([0 1])
     set(gca, 'XLim', [-180, 180 - bar_angle_gap], 'YLim', [-180, 180 - angle_gap])
     set(gca, 'LineWidth', LineWidth_FigS8, 'FontSize', FontSize_FigS8, 'FontWeight', 'bold');
-    if subject_FigS8 > 1
-        set(gca, 'XTick', [], 'YTick', []);
+    xlabel('HD (deg)')
+    if subject_FigS8 == 1
+        ylabel('HD cells')
     end
     
     %% 5th row: HD representations in Fig 7
@@ -103,17 +107,15 @@ for subject_FigS8 = 1 : simulation_dataset_length
     end    
     if (Operation_Sheriruth == 0) && (N_env <= 3)
         hold on
-        plot([beginning + time / N_env, beginning + time / N_env], [-180 0], 'LineStyle', '-', 'Color', 'b', 'LineWidth', LineWidth);
+        plot([beginning + time / N_env, beginning + time / N_env], [-180 0], 'LineStyle', '--', 'Color', 'b', 'LineWidth', LineWidth);
     end
     set(gca, 'XLim', [beginning, beginning + time], 'XTick', 0 : 600 : 1200, 'YLim', [-180 180]);
     set(gca, 'LineWidth', LineWidth_FigS8, 'FontSize', FontSize_FigS8, 'FontWeight', 'bold');
-    if subject_FigS8 > 1
-        set(gca, 'XTick', [], 'YTick', []);
+    xlabel('Time (s)')
+    if subject_FigS8 == 1
+        ylabel('HD Diff. (deg)')
     end
-    
-    %% show plots immediately
-    drawnow
     
 end
 
-set(gcf, 'unit', 'normalized', 'position', [0, 0, 1, 0.5]);
+set(gcf, 'unit', 'normalized', 'position', [0, 0, 1, 1]);

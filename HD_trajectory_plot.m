@@ -35,6 +35,7 @@ plot(Time + beginning, Velocity, 'color', 'k', 'LineWidth', 1);
 set(gca, 'XLim', [600 660], 'YLim', [-500, 1500], 'XTick', 600 : 20 : 660);
 set(gca, 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
 ylabel('Vel. (deg/s)')
+xlabel('Time (s)')
 
 set(gcf, 'unit', 'normalized', 'position', [0, 0, 0.5, 1]);
 

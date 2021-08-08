@@ -9,6 +9,8 @@ function W_t = Learning_algorithms(name, input, output, W_t0, lr, ff_coefficient
     switch name
         case 'mOSA' % modified Oja's subspace algorithm
             W_t = ReLU(W_t0 + lr * output' * (ff_coefficient * input - fb_coefficient * output * W_t0));
+        case 'OSA' % Oja's subspace algorithm
+            W_t = W_t0 + lr * output' * (ff_coefficient * input - fb_coefficient * output * W_t0);
         case 'sOSA' % Oja's single neuron algorithm
             W_t = W_t0 + lr * diag(output) * (ff_coefficient * ones(length(output), 1) * input - fb_coefficient * diag(output) * W_t0);
         case 'STDP' % STDP

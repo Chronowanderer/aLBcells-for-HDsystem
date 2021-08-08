@@ -51,7 +51,7 @@ for j = 1 : (T_len - 1)
         for theta = 1 : N_abstract
             W_visual(theta, :) = rand(1, N_input);
             W_visual0_tot = sqrt(sum(W_visual(theta, :) .^ 2));
-            W_visual(theta, :) = W_visual(theta, :) ./ W_visual0_tot;
+            W_visual(theta, :) = W_visual(theta, :) ./ W_visual0_tot .* Wv_weight_scale;
         end
         W_visual(W_visual < 0.01) = 0;
         W_visual = sparse(W_visual);
@@ -91,33 +91,31 @@ for j = 1 : (T_len - 1)
     W_visual = (1 - dr_weight_visual) * W_visual;
     if Operation_Midgard        
     % modified Oja's subspace algorithm
-        W_visual = Learning_algorithms('mOSA', F_visual(1, :), F_arep(1, :), W_visual, learning_rate_visual, ...
-            Theta_ff(j), Theta_fb(j) * Diabolic_coefficient);
+        W_visual = Learning_algorithms('mOSA', F_visual(1, :), F_arep(1, :), W_visual, learning_rate_visual, Theta_ff(j), Theta_fb(j));
     else    
     % Classic Hebbian rule      
         W_visual = Learning_algorithms('HL', F_visual(1, :), F_arep(1, :), W_visual, learning_rate_visual, 1, Wv_weight_scale);
-    % Firing-rate BCM
-%         lr_initial_rate_arep_TS = 1e-4;
-%         lr_decay_rate_arep_TS = 0;
-%         learning_rate_arep_TS = (present_time <= stop_learning_time) * lr_initial_rate_arep_TS * exp(-lr_decay_rate_arep_TS * j * dt);
-%         W_visual = W_visual + learning_rate_visual * Theta_ff(j) * F_arep(1, :)' .* (F_arep(1, :) - F_arep_TS)' * Theta_fb(j) * F_visual(1, :); 
-%         W_visual = ReLU(W_visual);    
-%         F_arep_TS = F_arep_TS + learning_rate_arep_TS * (F_arep(1, :) .^ 2 - F_arep_TS);  
     end    
     
     Con_a2d(j + 1) = max(U_arep2dRSC_gain_factor .* F_arep(1, :) * W_arep2dRSC');
     U_dRSC(2, :) = U_dRSC(1, :) + decay_rate_dRSC .* (0 - U_dRSC(1, :) - U_dRSC2dRSC_gain_factor .* F_dRSC(1, :) * ones(1, N_bin)' ./ N_bin + ...
     	U_arep2dRSC_gain_factor .* F_arep(1, :) * W_arep2dRSC' + U_g2dRSC_gain_factor .* F_gRSC(1, :) * W_g2dRSC');
     F_dRSC(2, :) = FiringRate_sigmoid(U_dRSC(1, :), alpha_dRSC, beta_dRSC, gamma_dRSC);        
+    
     learning_rate_arep2dRSC = (present_time <= stop_learning_time) * lr_initial_rate_arep2dRSC * exp(-lr_decay_rate_arep2dRSC * j * dt);
-    W_arep2dRSC = W_arep2dRSC + learning_rate_arep2dRSC .* (F_dRSC(1, :)' * F_arep(1, :));
+    learning_rate_arep2dRSC_slow = (present_time <= stop_learning_time) * lr_initial_rate_arep2dRSC_slow * exp(-lr_decay_rate_arep2dRSC_slow * j * dt);
+    learning_rate_arep2dRSC_vector = cat(2, repmat([learning_rate_arep2dRSC_slow], 1, N_bin / 2), repmat([learning_rate_arep2dRSC], 1, N_bin / 2));
+    W_arep2dRSC = W_arep2dRSC + learning_rate_arep2dRSC_vector .* (F_dRSC(1, :)' * F_arep(1, :));
     Wa2d_total = sqrt(sum(W_arep2dRSC.^ 2, 2));
     Wa2d_total_metric = repmat(Wa2d_total,[1, N_abstract]);
     Wa2d_target = min(Wa2d_total, W_arep2dRSC_weight_scale);
     Wa2d_target_metric = repmat(Wa2d_target,[1, N_abstract]);
     W_arep2dRSC = W_arep2dRSC ./ Wa2d_total_metric .* Wa2d_target_metric;
+    
     learning_rate_g2dRSC = (present_time <= stop_learning_time) * lr_initial_rate_g2dRSC * exp(-lr_decay_rate_g2dRSC * j * dt);    
-    W_g2dRSC = W_g2dRSC + learning_rate_g2dRSC .* (F_dRSC(1, :)' * F_gRSC(1, :));
+    learning_rate_g2dRSC_slow = (present_time <= stop_learning_time) * lr_initial_rate_g2dRSC_slow * exp(-lr_decay_rate_g2dRSC_slow * j * dt);
+    learning_rate_g2dRSC_vector = cat(2, repmat([learning_rate_g2dRSC_slow], 1, N_bin / 2), repmat([learning_rate_g2dRSC], 1, N_bin / 2));
+    W_g2dRSC = W_g2dRSC + learning_rate_g2dRSC_vector .* (F_dRSC(1, :)' * F_gRSC(1, :));
     Wg2d_total = sqrt(sum(W_g2dRSC.^ 2, 2));
     Wg2d_total_metric = repmat(Wg2d_total,[1, N_bin]);
     Wg2d_target = min(Wg2d_total, W_g2dRSC_weight_scale);

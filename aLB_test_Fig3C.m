@@ -10,6 +10,9 @@ for w_env = N_env : (N_env + 1)
         [X, Y] = meshgrid(Angle_bar, 1 : Bar_total_activated_unit);
         contourf(X, Y, Bar_MapSorted_AstRepresentation, 'LineStyle', 'none');
         set(gca, 'XLim', [-180 180 - bar_angle_gap], 'YLim', [1 Bar_total_activated_unit], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
+        xlabel('HD (deg)')
+        ylabel('aLB cells')
+        title('\boldmath{$f_{aLB}$}', 'interpreter', 'latex')
         c = colorbar;
         c.Label.FontSize = FontSize;
         c.Label.FontWeight = 'bold';

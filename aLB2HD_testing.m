@@ -1,6 +1,7 @@
 % aLB-HD learning simulation - Testing
 
 %% Parameters settings
+Plagmatism_time_test = 10; % Staying duration for repeated testing (s)
 Operation_Dynamic = 1;
 if Operation_Dynamic
     decay_rate_arep_test = decay_rate_arep;
@@ -87,7 +88,7 @@ Bar_cal = zeros(1, bar_bin);
 %% Testing simulation
 for jj = 1 : bar_time
     present_time = start_testing_time + jj * dt;
-    present_time_temp = fix(present_time / Plagmatism_time);
+    present_time_temp = fix(present_time / Plagmatism_time_test);
     if condition_env == (N_env + 1)
         present_env = mod(present_time_temp, N_env) + 1;
     else
@@ -95,7 +96,11 @@ for jj = 1 : bar_time
     end
     for k = 1 : N_cue
         Cue_test(jj, k) = AngularDiff(Cue_Init(present_env, k), Trajectory_test(jj));
-        Strength_test(jj, k) = Strength_Init(present_env, k);
+        if k == Operation_Odin
+            Strength_test(jj, k) = 0;
+        else
+            Strength_test(jj, k) = Strength_Init(present_env, k);
+        end
         F_visual_shift = circshift(F_visual_feature(k, :), [0 fix(Cue_test(jj, k) / angle_gap)]);
         F_visual_test(jj, ((k - 1) * N_bin + 1) : (k * N_bin)) = F_visual_shift .* Strength_test(jj, k);
     end

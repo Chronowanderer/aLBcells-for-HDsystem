@@ -37,8 +37,6 @@ if (Operation_Sheriruth == 0) && (N_env <= 3)
 %     plot([beginning + time / N_env * 2, beginning + time / N_env * 2], [-180 -130], 'LineStyle', '--', 'Color', 'b', 'LineWidth', LineWidth);
 end
 
-if (N_env == 2) || (N_env == 10)
-    ylabel('HD Diff. (deg)')
-end
-
+xlabel('Time (sec)')
+ylabel('HD Diff. (deg)')
 set(gcf, 'unit', 'normalized', 'position', [0, 0, 0.5, 0.5]);

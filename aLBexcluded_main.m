@@ -19,7 +19,7 @@ Operation_Cyaegha = 0; % random initial HD in each env.
 Operation_Midgard = 0; % Containing preinhibition and exclude weights normalisation (mOSA)
     Diabolic_coefficient = 0; % Relative strenth of feedback v.s. feedforward projection in mOSA 
 Operation_Sheriruth = 0; % 0 for one-time learning and 1 for repeated learning 
-    Plagmatism_time = 10; % Staying duration for repeated learning (s) 10
+    Plagmatism_time = 60; % Staying duration for repeated learning (s) 60
 
 %% Simulation settings
 
@@ -29,7 +29,7 @@ subject = 1;
 Data = load(['RealData_CIRC_Manson/', file(subject).name]);
 
 % parameters file setting
-save_data = 'Parameters/Fig_7C';
+save_data = 'Parameters/Fig_temp';
 
 % default parameters loading
 Default_parameters % Change the following parameters for different simulations in the paper
@@ -55,7 +55,7 @@ time_CueShifting = beginning + (time / N_env) : (time / N_env) : time;
     Cue_Init = [0 0; 120 120;]; 
     Strength_Init = ones(N_env, N_cue);
     
-    % Fig 8 (please uncomment Line 10 in Visual_inputs.m)
+    % Fig 8
 %     Cue_Init = cat(2, ones(N_env, N_cue - 1) .* zeros(1, N_cue - 1), 0 + (-180 : (360 / N_env) : (180 - 360 / N_env))');
 %     Strength_Init = ones(N_env, N_cue);
 
@@ -96,11 +96,15 @@ close(hwait);
 
 %% Save/load data from training
 save(save_data)
-% load('Parameters/Fig_7C') % load training results (if saved) to do the test
+
+%% TESTING SECTION STARTS HERE
+
+%% Load training results (if saved) to do the test
+% load('Parameters/Fig_7C')
 
 %% General plotting
-% HD_trajectory_plot
-% Visual_inputs_plot
+HD_trajectory_plot
+Visual_inputs_plot
 HD_progress_plot
 
 %% Simulation - testing
@@ -108,10 +112,10 @@ HD_progress_plot
 % Run one of them every time, and remember to setup parameters and
 % operations before running.
 
-% Figs 7
+% Figs 7C
 aLBexcluded_test_Fig7
 
-% Fig 8-reght
+% Fig 8right
 % aLBexcluded_test_Fig8
 
 % end

@@ -12,7 +12,8 @@ for w_env = (N_env + 1) : (N_env + 1)
         contourf(X, Y, Bar_arep_firing, 'LineStyle', 'none');
         set(gca, 'XLim', [-180, 180 - bar_angle_gap], 'YLim', [1, N_abstract], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
         xlabel('HD (deg)')
-        title('aLB cells')
+        ylabel('aLB cells')
+        title('\boldmath{$f_{aLB}$}', 'interpreter', 'latex')
         subplot(1, 2, 2);
 
         [X, Y] = meshgrid(Angle_bar, 1 : Bar_total_activated_unit);
@@ -21,7 +22,9 @@ for w_env = (N_env + 1) : (N_env + 1)
         c = colorbar;
         c.Label.FontSize = FontSize;
         c.Label.FontWeight = 'bold';
-        title('Sorted aLB cells')
+        xlabel('HD (deg)')
+        ylabel('Sorted aLB cells')
+        title('\boldmath{$f_{aLB}$}', 'interpreter', 'latex')
         set(gcf, 'unit', 'normalized', 'position', [0, 0, 0.9, 0.5]);
     end
 end

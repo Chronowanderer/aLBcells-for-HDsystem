@@ -18,14 +18,14 @@ for k = 1 : N_cue
         F_visual_feature(k, :) = vonmisespdf(Angle, 0, precision_visual1);
     elseif k == 1 % red cue
         F_visual_feature(k, :) = vonmisespdf(Angle, 90, precision_visual2) + vonmisespdf(Angle, -90, precision_visual2); % conflicting red cue in Fig 2A
-        % F_visual_feature(k, :) = vonmisespdf(Angle, 0, precision_visual1); % unimodal red cue in Fig 4
-        % F_visual_feature(k, :) = ones(1, N_bin) / N_bin; % uniform odor cue in S6C Fig
+        F_visual_feature(k, :) = vonmisespdf(Angle, 0, precision_visual1); % unimodal red cue in Figs 4 & 8
+        F_visual_feature(k, :) = ones(1, N_bin) / N_bin; % uniform odor cue in S6C Fig
     elseif k == 2 % broad blue cue in Fig 2A
         for p = (0 - proximal_length / 2) : 1 : (proximal_length / 2)
             F_visual_feature(k, :) = F_visual_feature(k, :) + vonmisespdf(Angle, p, precision_visual2);
         end
         F_visual_feature(k, :) = F_visual_feature(k, :) / length((0 - proximal_length / 2) : 1 : (proximal_length / 2));
-        % F_visual_feature(k, :) = ones(1, N_bin) / N_bin; % uniform odor cue in S6C Fig
+        F_visual_feature(k, :) = ones(1, N_bin) / N_bin; % uniform odor cue in S6C Fig
     elseif k == 4 % noise in Fig 5A
         F_visual_feature(k, :) = rand(1, N_bin);
     end

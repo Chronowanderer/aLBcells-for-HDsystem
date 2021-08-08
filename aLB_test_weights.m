@@ -32,7 +32,7 @@ for kk = N_cue : N_cue
             W_sorted(l, :) = W_plot(W_RemapIndex(l), :);
         end
         contourf(X, Y, W_sorted, 'LineStyle', 'none');
-        caxis([0 0.1]);
+        caxis([0 1]);
         set(gca, 'XLim', [-180, 180 - angle_gap], 'YLim', [1, N_abstract], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
         if i == 1
             title('Sn. I (400 s)')
@@ -53,14 +53,12 @@ for kk = N_cue : N_cue
         set(gca, 'XLim', [-180, 180 - angle_gap], 'YLim', [1, N_abstract], 'LineWidth', LineWidth, 'FontSize', FontSize, 'FontWeight', 'bold');
         if i == 1
             title('400 s - 0 s')
-            caxis([-0.05 0]);
         elseif i == 2
             title('800 s - 400 s')
-            caxis([0 0.05]);
         elseif i == 3
             title('1200 s - 800 s')
-            caxis([-0.05 0]);
         end
+        caxis([-0.5 0.5]);
         c = colorbar;
     end
 %     suptitle(['Cue No. ', num2str(kk)])

@@ -43,6 +43,18 @@ for j = 1 : (T_len - 1)
         if Operation_Valhalla
             F_visual_shift = F_visual_shift .* Visual_field;
         end
+        
+        % visual noise
+        F_noise = 2 * rand(1, N_bin) - 1;
+        tot_noise = sum(abs(F_noise));
+        F_noise = F_noise ./ tot_noise * visual_noise_intensity * N_bin;
+        F_visual_shift = F_visual_shift + F_noise;
+        for i = 1 : length(F_visual_shift)
+            if F_visual_shift(i) < 0
+                F_visual_shift(i) = 0;
+            end
+        end
+        
         F_visual(((k - 1) * N_bin + 1) : (k * N_bin)) = F_visual_shift * strength(k);
     end        
     if Operation_Loki && (j > 1)
@@ -120,7 +132,10 @@ for j = 1 : (T_len - 1)
     if Operation_Fimbulvetr
            
     % modified Oja's subspace algorithm
-        W_visual = Learning_algorithms('mOSA', F_visual_p, F_arep, W_visual, learning_rate_visual, Theta_ff(j), Theta_fb(j) * Diabolic_coefficient);
+        W_visual = Learning_algorithms('mOSA', F_visual_p, F_arep, W_visual, learning_rate_visual, Theta_ff(j), Theta_fb(j));
+    
+    % original Oja's subspace algorithm
+%         W_visual = Learning_algorithms('OSA', F_visual_p, F_arep, W_visual, learning_rate_visual, Theta_ff(j), Theta_fb(j));
         
     % Oja's single neuron algorithm
 %         W_visual = Learning_algorithms('sOSA', F_visual_p, F_arep, W_visual, learning_rate_visual);
@@ -135,7 +150,7 @@ for j = 1 : (T_len - 1)
 
     else
     % Classic Hebbian rule    
-%         W_visual = Learning_algorithms('HL', F_visual_p, F_arep, W_visual, learning_rate_visual, 1, Wv_weight_scale);    
+        W_visual = Learning_algorithms('HL', F_visual_p, F_arep, W_visual, learning_rate_visual, 1, Wv_weight_scale);    
             
     % Hebbian covariance rule
 %         if j == 1

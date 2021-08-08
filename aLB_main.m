@@ -1,4 +1,4 @@
-% Main code for Vis-aLB model (Figs 1-4 & S1-S5 Figs in the paper).
+% Main code for Vis-aLB model (Figs 1-4 & S1-S5, S10 Figs in the paper).
 % Change operations and parameters to output different figures in the paper
 % (see comments).
 
@@ -23,15 +23,14 @@ Operation_Bifrost = 0; % Featural attention
 Operation_Odin = 0; % Multi-environment wandering
     duration_Odin = 10; % Single-environment wandering time (s)
 
-% Tune the following operations for different simulations among Figs 1-4 & S1-S5 Figs
+% Tune the following operations for different simulations among Figs 1-4 & S1-S5, S10 Figs
 
 % Containing feedback transmission 
-Operation_Fimbulvetr = 1; % Tune for S1A Fig
-    % Relative strenth of feedback v.s. feedforward projection in mOSA 
-    Diabolic_coefficient = 10; % Tune for S1B Fig (1 for OSA, default is 10)
+Operation_Fimbulvetr = 1; % 1 for OSA and 0 for others
+% Change learning algorithms in aLB_simulation.m For S1 Fig
 
 % [1, N_cue] pointing the specific moving cue, 0 for disabled 
-Operation_Jormungand = 0; % blue cue for Figs 3A-B
+Operation_Jormungand = 0; % blue cue (i.e. 2) for Figs 3A-B
     % Moving velocily (deg/s) 
     velocity_Jormungand = 0; % 90 for Fig 3A
     % Duration after randomly jumping (s), 0 for disabled 
@@ -51,7 +50,7 @@ subject = 1;
 Data = load(['RealData_CIRC_Manson/', file(subject).name]);
 
 % parameters file setting
-save_data = 'Parameters/Fig_temp';
+save_data = ['Parameters/Fig_', 'temp'];
 
 % default parameters loading
 Default_parameters % Change the following parameters for different simulations in the paper
@@ -64,13 +63,13 @@ Time = 0 : dt_exp : time; % Time
 T_len = length(Time); % Number of time point
 
 % number of subsequent environments
-N_env = 1; % Figs 2, 3A-B; S1-S2 Figs
+% N_env = 1; % Figs 2, 3A-B; S1-S2 Figs
 % N_env = 3; % Fig 3C; S3-4 Figs
-% N_env = 10; % Fig 4; S5 Fig
+N_env = 10; % Fig 4; S5, S10 Figs
 
 % number of cue features
-N_cue = 2; % Figs 2, 3A-B; S1-S2 Figs
-% N_cue = 3; % Figs 3C, 4; S3-5 Figs
+% N_cue = 2; % Figs 2, 3A-B; S1-S2 Figs
+N_cue = 3; % Figs 3C, 4; S3-5, S10 Figs
 
 % Number of visual input layer unit
 N_input = N_cue * N_bin;
@@ -86,16 +85,16 @@ end
 % angular position (deg) of the center of cues (centralized at initial HD trajectory)
 % Environmental dimension: N_env * N_cue
     % Figs 2, 3A-B; S1-S2 Figs
-    Cue_Init = ones(N_env, N_cue) * 360 - 360; % Angular position of the center
-    Strength_Init = ones(N_env, N_cue); % Strength
+%     Cue_Init = ones(N_env, N_cue) * 360 - 360; % Angular position of the center
+%     Strength_Init = ones(N_env, N_cue); % Strength
     
     % Fig 3C; S3-4 Figs
 %     Cue_Init = ones(N_env, 1) * [0 0 180];
 %     Strength_Init = [1 1 0; 1 1 1; 1 1 0;];
     
-    % Fig 4; S5 Fig (please uncomment Line 10 in Visual_inputs.m)
-%     Cue_Init = cat(2, ones(N_env, N_cue - 1) .* zeros(1, N_cue - 1), 0 + (-180 : (360 / N_env) : (180 - 360 / N_env))');
-%     Strength_Init = ones(N_env, N_cue);
+    % Fig 4; S5, S10 Figs
+    Cue_Init = cat(2, ones(N_env, N_cue - 1) .* zeros(1, N_cue - 1), 0 + (-180 : (360 / N_env) : (180 - 360 / N_env))');
+    Strength_Init = ones(N_env, N_cue);
 
 % global cue settings
 Cue_global = Cue_Init;
@@ -103,11 +102,14 @@ Strength_global = Strength_Init;
 
 % interinhibition matrix of abstract representation - change for S1A Fig
 Inhibition_U_arep = (ones(N_abstract) - eye(N_abstract)) / sqrt(N_abstract - 1); % lateral inhibition
-% Inhibition_U_arep = ones(N_abstract) / sqrt(N_abstract); % global inhibition for S1A Fig
-% Inhibition_U_arep = zeros(N_abstract); % no inhibition for S1A Fig
+%Inhibition_U_arep = ones(N_abstract) / sqrt(N_abstract); % global inhibition for S1A Fig
+%Inhibition_U_arep = zeros(N_abstract); % no inhibition for S1A Fig
 
 % minimun firing rate (scaled) for enabling to encode the abstract representation 
 firingrate_criterion = .5; % will later plot all aLB cells if no one exceeds the threshold
+
+% visual noise intensity for S10 Fig (0 otherwise)
+% visual_noise_intensity = 0.05;
 
 %% HD trajectory settings
 HD_trajectory
@@ -127,9 +129,13 @@ Stopwatch = tic;
 aLB_simulation % Training
 close(hwait);
 
-%% Save/load data from training
+%% Save data from training
 save(save_data)
-% load('Parameters/Fig_2') % load training results (if saved) to do the test
+
+%% TESTING SECTION STARTS HERE
+
+%% Load training results (if saved) to do the test
+% load('Parameters/Fig_S4') 
 
 %% General plotting
 HD_trajectory_plot
@@ -143,7 +149,7 @@ Weights_aLB_plot
 % operations before running.
 
 % Single plot of aLB representations for single-environment testing (e.g. S1 Fig)
-aLB_test_plot
+% aLB_test_plot
 
 % Figs 2; S2 Fig
 % aLB_test_Fig2
@@ -156,5 +162,5 @@ aLB_test_plot
 % Strength_Init = [1 1 0; 1 1 1; 0 0 1;]; % For testing scenes
 % aLB_test_Fig3C
 
-% Fig 4; S5 Fig
-% aLB_test_Fig4
+% Fig 4; S5 Fig; S10 Figs
+aLB_test_Fig4

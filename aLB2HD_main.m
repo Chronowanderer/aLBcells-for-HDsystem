@@ -19,11 +19,10 @@ Operation_Runenschrift = 1; % Stable HD weights based on optimization (see Zhang
 Operation_Ratatoskr = 0; % 'Quite' perfect HD weights
 Operation_Cyaegha = 0; % random initial HD in each env.
 Operation_Midgard = 1; % Containing feedback transmission for mOSA
-    Diabolic_coefficient = 10; % Relative strenth of feedback v.s. feedforward projection in mOSA 
 
 % Tune the following operations for different simulations among Figs 5-8 & S6 Fig
-Operation_Sheriruth = 1; % 0 for one-time learning and 1 for repeated learning 
-    Plagmatism_time = 10; % Staying duration for repeated learning (s) 10
+Operation_Sheriruth = 1; % 0 for one-time learning (Figs 7-8) and 1 for repeated learning (otherwise)
+    Plagmatism_time = 60; % Staying duration for repeated learning (s) % 60 for default % 300 for S6F Fig
 
 %% Simulation settings
 
@@ -33,18 +32,18 @@ subject = 1;
 Data = load(['RealData_CIRC_Manson/', file(subject).name]);
 
 % parameters file setting
-save_data = 'Parameters/Fig_temp';
+save_data = ['Parameters/Fig_', 'temp'];
 
 % default parameters loading
 Default_parameters % Change the following parameters for different simulations in the paper
 
 % number of environments
-N_env = 2; % Figs 5-7; S5-S6 Figs
+N_env = 2; % Figs 5-7; S6 Figs
 % N_env = 3; % S7 Fig
 % N_env = 10; % Fig 8
 
 % number of cue features
-N_cue = 4; % Figs 5-6; S5-S7 Figs
+N_cue = 4; % Figs 5-6; S6-S7 Figs
 % N_cue = 2; % Fig 7
 % N_cue = 3; % Fig 8
 
@@ -63,16 +62,16 @@ time_CueShifting = beginning + (time / N_env) : (time / N_env) : time;
     % S6C Fig
 %     Cue_Init = [0 0 180 0; 0 0 0 180;];
 %     Strength_Init = [1 0 1 1; 0 1 1 1;];
+
+    % S7 Fig
+%     Cue_Init = [0 0 180 0; 120 120 -60 120; -120 -120 60 -120;];
+%     Strength_Init = ones(N_env, N_cue);
     
     % Fig 7
 %     Cue_Init = [0 0; 120 120;]; 
 %     Strength_Init = ones(N_env, N_cue);
     
-    % S7 Fig
-%     Cue_Init = [0 0 180 0; 120 120 -60 120; -120 -120 60 -120;];
-%     Strength_Init = ones(N_env, N_cue);
-    
-    % Fig 8 (please uncomment Line 10 in Visual_inputs.m)
+    % Fig 8
 %     Cue_Init = cat(2, ones(N_env, N_cue - 1) .* zeros(1, N_cue - 1), 0 + (-180 : (360 / N_env) : (180 - 360 / N_env))');
 %     Strength_Init = ones(N_env, N_cue);
 
@@ -82,6 +81,10 @@ Strength_global = Strength_Init;
 
 % Simulaiton in the darkness for Fig 6A (comment this otherwise!)
 % U_dRSC2HD_gain_factor = 0;
+
+% S6F Fig (comment this otherwise!)
+% lr_initial_rate_arep2dRSC_slow = 1e-3 * lr_initial_rate_arep2dRSC;
+% lr_initial_rate_g2dRSC_slow = 1e-3 * lr_initial_rate_g2dRSC;
 
 % minimun firing rate (scaled) for enabling to encode the abstract representation 
 firingrate_criterion = .5; % will later plot all aLB cells if no one exceeds the threshold
@@ -94,7 +97,7 @@ HD_attractor_weights
 
 %% Visual input settings
 % For Fig 8, choose Line 21 for feature 1 in Visual_inputs.m
-% For S6C Fig, choose Line 22 for feature 1 and Line 28 for feature 2 in Visual_inputs.m
+% For S6CDF Fig, choose Line 22 for feature 1 and Line 28 for feature 2 in Visual_inputs.m
 % For others, choose Line 20 for feature 1 and Line 27 for feature 2 in Visual_inputs.m
 Visual_inputs
 F_visual_feature_norm
@@ -107,9 +110,13 @@ Stopwatch = tic;
 aLB2HD_simulation % Training
 close(hwait);
 
-%% Save/load data from training
+%% Save data from training
 save(save_data)
-% load('Parameters/Fig_5') % load training results (if saved) to do the test
+
+%% TESTING SECTION STARTS HERE
+
+%% Load training results (if saved) to do the test
+% load('Parameters/Fig_5')
 
 %% General plotting
 HD_trajectory_plot
@@ -122,11 +129,20 @@ HD_progress_plot % For Figs 6-8; S7 Fig
 % Run one of them every time, and remember to setup parameters and
 % operations before running.
 
+% testing in the darkness (set 3 for Fig S6E and 0 otherwise)
+Operation_Odin = 0; % which visual cue to block (0 for blocking nothing)
+if Operation_Odin
+    firingrate_criterion = .0;
+end
+
 % Figs 5, 6B; S6 Fig
 aLB2HD_test_Fig5_6B
 
 % Fig 6A (only plotting HD progress)
 % aLB2HD_test_Fig6A
+
+% Fig S6E (S6C testing in darkness), S6F
+% aLB2HD_test_FigS6E
 
 % Fig S7
 % aLB2HD_test_FigS7
@@ -134,7 +150,7 @@ aLB2HD_test_Fig5_6B
 % Fig 7
 % aLB2HD_test_Fig7
 
-% Fig 8-left
+% Fig 8left
 % aLB2HD_test_Fig8
 
 % end
