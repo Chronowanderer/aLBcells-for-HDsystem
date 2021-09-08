@@ -1,4 +1,4 @@
-% Capacity varification for Vis-aLB model (S9, S11 Figs in the paper).
+% Capacity varification for Vis-aLB model (S9, S11, S12 Figs in the paper).
 
 clear
 
@@ -62,6 +62,7 @@ T_len = length(Time); % Number of time point
 
 % number of subsequent environments
 N_env = 20; % S9 Fig
+% N_env = 10; % S12 Fig
 
 % number of cue features in S9 Fig
 N_cue = 6; % total number of cues across all environments

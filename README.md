@@ -1,13 +1,13 @@
 # aLBcells-for-HDsystem
 Codes in MATLAB 2017a for 
 
-    Yan, Burgess, & Bicanski. A model of head direction and landmark coding in complex environments. PLOS Computational Biology. Under review.
+    Yan, Burgess, & Bicanski. (in press). A model of head direction and landmark coding in complex environments. PLOS Computational Biology.
 
 Cite the paper for using codes. Codes provided with no warranty.
 
 ## What is the model
 
-The model raises a new type of neuron (abstract landmark bearing (aLB) cells) which endows the animal head direction (HD) system with powerful abilities, including unimodal landmark encoding at a sensory level despite partially conflicting cues, robustness against unreliable and ephemeral cues, and a high encoding capacity across environments. The model is consistent with numerous empirical findings, and provides a novel perspective on the neural mechanisms of spatial navigation in more realistic, cue-rich settings across multiple environments. 
+The model raises a new type of neuron, abstract landmark bearing (aLB) cells, which endows the animal head direction (HD) system with powerful abilities, including unimodal landmark encoding at a sensory level despite partially conflicting cues, robustness against unreliable and ephemeral cues, and a high encoding capacity across environments. The model is consistent with numerous empirical findings, and provides a novel perspective on the neural mechanisms of spatial navigation in more realistic, cue-rich settings across multiple environments. 
 
 ## How to run models
 Download Matlab scripts and run each main code section by section, following instructions embedded. These sections include basic settings, hyperparameter settings, data pre-processing, training, basic plotting, and testing (with final plotting).
@@ -17,7 +17,7 @@ Three independent main codes are provided:
     aLB_main % aLB_main.m, Simulations of model with a single Visual-aLB connection (Figs 1-4; S1-S5, S8, S10 Figs).
     aLB2HD_main % aLB2HD_main.m, Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (Figs 5-8; S6-S8 Figs).
     aLBexcluded_main % aLBexcluded_main.m, Simulations of model with the alternative Visual-dRSC-HD/gRSC architecture without aLB cells (Figs 7-8).
-    aLB_main_FigS9 & aLB_main_FigS9.m, Simulations of model with high capacity across multiple rich environments (S9, S11 Figs).
+    aLB_main_FigS9 & aLB_main_FigS9.m, Simulations of model with high capacity across multiple rich environments (S9, S11, S12 Figs).
 
 Follow the corresponding instructions to change hyperparameters and settings for different simulations. With testing scripts you would see how the model with aLB cells provides various powerful abilities, such as:
 
@@ -25,7 +25,7 @@ Follow the corresponding instructions to change hyperparameters and settings for
     aLB_test_Fig3AB % aLB_test_Fig3AB.m, Robustness against unreliable cues (Fig 3A-B).
     aLB_test_Fig3C % aLB_test_Fig3C.m, Novel ephemeral salient cue incorporation (Fig 3C, S3-S4 Figs).
     aLB_test_Fig4 % aLB_test_Fig4.m, High encoding capacity across multiple environmnets (Fig 4, S5, S10 Figs).
-    aLB_test_FigS9 % aLB_test_FigS9.m, High encoding capacity across multiple rich environmnets (S9, S11 Figs).
+    aLB_test_FigS9 % aLB_test_FigS9.m, High encoding capacity across multiple rich environmnets (S9, S11, S12 Figs).
     aLB_test_plot % aLB_test_plot.m, Simple plots of aLB representations with various learning algorithms (S1 Fig).
     aLB_test_snapshots % aLB_test_snapshots.m, aLB representations with weights snapshots at different timepoints within the simulation of Fig 2 (S2 Fig).
     aLB2HD_test_Fig5_6B % aLB2HD_test_Fig5_6B.m, Multimodal dRSC units in accordance with previous experimental findings (Fig 5, S6A-D Figs, S6F Fig).
@@ -52,13 +52,15 @@ If you want to skip the time-consuming training phase or reduplicate simulation 
 ## What are the files
 Figs folder: Figures plotted in the paper based on simulation results provided above.
 
-RealData_CIRC_Manson folder: MATLAB extension files with 3 independent HD trajectory data from the 20-minute real-time rat recording used for simulations. Also provided as supporting information in the paper. Figs 1-8 and S1-S7 Figs show simulation results based on the data only with Subject 1. S8 Fig shows simulation results based on the data with all 3 subjects. We thank Daniel Manson for providing this real HD trajectory data.
+RealData_CIRC_Manson folder: MATLAB extension files with 3 independent HD trajectory data from the 20-minute real-time rat recording used for simulations. Also provided as supporting information in the paper. Figs 1-8, S1-S7 Figs, and S9-S12 Figs show simulation results based on the data only with Subject 1. S8 Fig shows simulation results based on the data with all 3 subjects. We thank Daniel Manson for providing this real HD trajectory data.
 
 Matlab scripts: See the starting comments of each file for details.
 
 ## Contact me
-Feel free to contact me for any assistance and communication.
+Feel free to contact for any assistance and communication.
 
 Yijia (Charlie) Yan
-
 yijia.yan@ndcn.ox.ac.uk / yijia.yan.18@ucl.ac.uk
+
+Dr. Andrej Bicanski
+andrej.bicanski@newcastle.ac.uk / a.bicanski@ucl.ac.uk
