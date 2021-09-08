@@ -1,5 +1,5 @@
 # aLBcells-for-HDsystem
-Codes in MATLAB 2017a for 
+Codes (v1.1) in MATLAB 2017a for 
 
     Yan, Burgess, & Bicanski. (in press). A model of head direction and landmark coding in complex environments. PLOS Computational Biology.
 
@@ -12,7 +12,7 @@ The model raises a new type of neuron, abstract landmark bearing (aLB) cells, wh
 ## How to run models
 Download Matlab scripts and run each main code section by section, following instructions embedded. These sections include basic settings, hyperparameter settings, data pre-processing, training, basic plotting, and testing (with final plotting).
 
-Three independent main codes are provided:
+Four independent main codes are provided:
 
     aLB_main % aLB_main.m, Simulations of model with a single Visual-aLB connection (Figs 1-4; S1-S5, S8, S10 Figs).
     aLB2HD_main % aLB2HD_main.m, Simulations of model with the whole Visual-aLB-dRSC-HD/gRSC architecture in Fig 1A (Figs 5-8; S6-S8 Figs).
