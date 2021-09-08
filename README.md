@@ -60,7 +60,10 @@ Matlab scripts: See the starting comments of each file for details.
 Feel free to contact for any assistance and communication.
 
 Yijia (Charlie) Yan
+
 yijia.yan@ndcn.ox.ac.uk / yijia.yan.18@ucl.ac.uk
 
+
 Dr. Andrej Bicanski
+
 andrej.bicanski@newcastle.ac.uk / a.bicanski@ucl.ac.uk
