@@ -66,4 +66,4 @@ yijia.yan@ndcn.ox.ac.uk / yijia.yan.18@ucl.ac.uk
 
 Dr. Andrej Bicanski
 
-andrej.bicanski@newcastle.ac.uk / a.bicanski@ucl.ac.uk
+andrej.bicanski@gmail.com / a.bicanski@ucl.ac.uk
